@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextStyle">
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextStyle.Body1">
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextStyle.Body1.1Variant">
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+
+    <style name="TextStyle.Body1.2Variant" parent="TextStyle.Body1.1Variant">
+        <item name="android:paddingBottom">1dp</item>
+    </style>
+
+</resources>

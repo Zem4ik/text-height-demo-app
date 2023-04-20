@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="variants_screen">Variants</string>
+    <string name="font_details">Font Details</string>
+    <string name="first_variant">First Variant</string>
+    <string name="second_variant">Second Variant</string>
+    <string name="body1">Body1</string>
+    <string name="body1_text_example">Body 1 | Regular 17</string>
+    <string name="body_multiline_text_example">Body 1 | Regular 17\nSecond line</string>
 </resources>
