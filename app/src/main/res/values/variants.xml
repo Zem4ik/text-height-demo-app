@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextStyle">
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextStyle.Body1">
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextStyle.Body1.1Variant">
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+
+    <style name="TextStyle.Body1.2Variant" parent="TextStyle.Body1.1Variant">
+        <item name="android:paddingBottom">1sp</item>
+    </style>
+
+    <style name="TextStyle.Body1.3Variant">
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="TextStyle.Body1.4Variant">
+        <item name="lineHeight">24sp</item>
+        <item name="firstBaselineToTopHeight">18sp</item>
+        <item name="lastBaselineToBottomHeight">6sp</item>
+    </style>
+
+    <style name="TextStyle.Body2.1Variant" parent="TextStyle">
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize">17sp</item>
+        <item name="lineHeight">22sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="firstBaselineToTopHeight">17sp</item>
+        <item name="lastBaselineToBottomHeight">5sp</item>
+    </style>
+
+</resources>

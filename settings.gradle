@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+    versionCatalogs {
+        libs {
+            library('androidx-coreKtx', 'androidx.core:core-ktx:1.10.0')
+            library('androidx-fragmentKtx', 'androidx.fragment:fragment-ktx:1.5.7')
+            library('androidx-appcompat', 'androidx.appcompat:appcompat:1.6.1')
+            library('androidx-material', 'com.google.android.material:material:1.8.0')
+            library('androidx-constraintlayout', 'androidx.constraintlayout:constraintlayout:2.1.4')
+        }
+    }
+}
+rootProject.name = "My Application"
+include ':app'
