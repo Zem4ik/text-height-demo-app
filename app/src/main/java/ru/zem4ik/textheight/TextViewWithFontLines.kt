@@ -8,14 +8,14 @@ import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
 
 
-class TextViewWithLines @JvmOverloads constructor(
+class TextViewWithFontLines @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : MaterialTextView(context, attrs) {
     private val baselineColor = Color.RED
     private val topColor = Color.parseColor("#A7FD64")
     private val ascentColor = Color.parseColor("#80f3CA")
-    private val descentColor = Color.parseColor("#FEEF68")
-    private val bottomColor = Color.parseColor("#FDA464")
+    private val descentColor = Color.parseColor("#CC00FF")
+    private val bottomColor = Color.parseColor("#648FFD")
     private var paint = Paint()
     private val fontMetricsInt = super.getPaint().fontMetricsInt
 
@@ -39,19 +39,23 @@ class TextViewWithLines @JvmOverloads constructor(
         recalculateLineParams()
         val lineLeft = 0f
         val lineRight = width.toFloat()
+        val lastLineIndex = lineCount - 1
 
         paint.strokeWidth = 0f
         paint.isAntiAlias = false
         while (currentLine < lineCount && lineTop < bottom) {
 
-            if (lineTop >= 0) {
+            if (lineTop >= 0 && includeFontPadding && currentLine == 0) {
                 paint.color = topColor
-                val lineTopFloat = lineTop.toFloat()
+                val lineTopFloat = lineTop.toFloat() - paddingTop
                 canvas?.drawLine(lineLeft, lineTopFloat, lineRight, lineTopFloat, paint)
             }
-            if (lineAscent >= 0) {
+            if (lineAscent >= 0 &&
+                ((!includeFontPadding && currentLine == 0) || currentLine != 0)
+            ) {
                 paint.color = ascentColor
-                val lineAscentFloat = lineAscent.toFloat()
+                val lineAscentFloat = lineAscent.toFloat() -
+                        if (!includeFontPadding && currentLine == 0) paddingTop else 0
                 canvas?.drawLine(lineLeft, lineAscentFloat, lineRight, lineAscentFloat, paint)
             }
             if (lineBaseline in 0..height) {
@@ -59,21 +63,24 @@ class TextViewWithLines @JvmOverloads constructor(
                 val lineBaselineFloat = lineBaseline.toFloat()
                 canvas?.drawLine(lineLeft, lineBaselineFloat, lineRight, lineBaselineFloat, paint)
             }
-            if (lineDescent <= height) {
+            if (lineDescent <= height &&
+                ((!includeFontPadding && currentLine == lastLineIndex) ||
+                        currentLine != lastLineIndex)
+            ) {
                 paint.color = descentColor
-                val lineDescentFloat = lineDescent.toFloat() - 1f
+                val lineDescentFloat = lineDescent.toFloat() - 1f +
+                        if (!includeFontPadding && currentLine == lastLineIndex) paddingBottom else 0
                 canvas?.drawLine(lineLeft, lineDescentFloat, lineRight, lineDescentFloat, paint)
             }
-            if (lineBottom <= height) {
+            if (lineBottom <= height && includeFontPadding && currentLine == lastLineIndex) {
                 paint.color = bottomColor
-                val lineBottomFloat = lineBottom.toFloat() - 1f
+                val lineBottomFloat = lineBottom.toFloat() - 1f + paddingBottom
                 canvas?.drawLine(lineLeft, lineBottomFloat, lineRight, lineBottomFloat, paint)
             }
 
             currentLine++
             recalculateLineParams()
         }
-//        getLineBounds()
     }
 
 }

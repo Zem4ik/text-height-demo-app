@@ -12,7 +12,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/first_variant" />
 
-    <ru.zem4ik.textheight.TextViewWithLines
+    <ru.zem4ik.textheight.TextViewWithFontLines
         android:id="@+id/one_line_text"
         style="@style/TextStyle.Body2.1Variant"
         android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-    <ru.zem4ik.textheight.TextViewWithLines
+    <ru.zem4ik.textheight.TextViewWithFontLines
         style="@style/TextStyle.Body2.1Variant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

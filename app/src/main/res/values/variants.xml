@@ -16,7 +16,7 @@
 
 
     <style name="TextStyle.Body1.2Variant" parent="TextStyle.Body1.1Variant">
-        <item name="android:paddingBottom">1dp</item>
+        <item name="android:paddingBottom">1sp</item>
     </style>
 
     <style name="TextStyle.Body1.3Variant">
